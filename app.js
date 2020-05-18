@@ -39,6 +39,8 @@ app.route('/api/notes')
   fs.writeFileSync(path.join(__dirname, '/db/db.json'), JSON.stringify(myObject), err => console.log(err))
   res.send(200,req.body)
 })
-.delete((req, res) => {
-  //Do some other stuff
-})
+
+// app.delete('A good path',(req, res) => {
+//   let splitURL = req.url.split('/')
+//   console.log(splitURL)
+// })
