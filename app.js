@@ -4,7 +4,7 @@ const path = require('path')
 const port = 3000
 const fs = require('fs')
 
-app.use(express.json())
+app.use(express.urlencoded())
 
 const options = {
   root: path.join(__dirname, 'public')
@@ -34,12 +34,11 @@ app.route('/api/notes')
   res.send(200, myObject)
 })
 .post((req, res) => {
-  console.log(`Request body: ${JSON.stringify(req.body)}`)
-  // let myObject = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), err => console.log(err)))
-  // myObject.push(req.body)
-  // console.log(req.body)
-  // console.log(myObject)
-  // fs.writeFileSync(path.join(__dirname, '/db/db.json'), JSON.stringify(myObject), err => console.log(err))
+  let myObject = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), err => console.log(err)))
+  myObject.push(req.body)
+  console.log(req.body)
+  console.log(myObject)
+  fs.writeFileSync(path.join(__dirname, '/db/db.json'), JSON.stringify(myObject), err => console.log(err))
 })
 .delete((req, res) => {
   //Do some other stuff
