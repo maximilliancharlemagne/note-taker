@@ -22,15 +22,15 @@ app.get('/assets/js/index.js', (req, res) => {
   res.sendFile('assets/js/index.js', options)
 })
 
-app.get('/api/notes', (req, res) => {
+
+app.route('/api/notes')
+.get((req, res) => {
   let myObject = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), err => console.log(err)))
   res.send(200, myObject)
 })
-
-app.post('/api/notes', (req, res) => {
+.post((req, res) => {
   //Do some stuff
 })
-
-app.delete('/api/notes/:id', (req, res) => {
+.delete((req, res) => {
   //Do some other stuff
 })
