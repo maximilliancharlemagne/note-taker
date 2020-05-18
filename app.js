@@ -36,9 +36,8 @@ app.route('/api/notes')
 .post((req, res) => {
   let myObject = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), err => console.log(err)))
   myObject.push(req.body)
-  console.log(req.body)
-  console.log(myObject)
   fs.writeFileSync(path.join(__dirname, '/db/db.json'), JSON.stringify(myObject), err => console.log(err))
+  res.send(200,req.body)
 })
 .delete((req, res) => {
   //Do some other stuff
