@@ -11,7 +11,7 @@ const options = {
   root: path.join(__dirname, 'public')
 }
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Note Taker server listening at http://localhost:${port}`))
 
 app.get('/', (req, res) => {
   res.sendFile('index.html',options)
