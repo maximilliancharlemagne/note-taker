@@ -51,5 +51,5 @@ No automated testing code is included with this project.
 ![user-image](https://avatars3.githubusercontent.com/u/13306164?v=4)
  
 username: maximilliancharlemagne
-email: null
+email: maxwell.k.roberts@gmail.com
  
