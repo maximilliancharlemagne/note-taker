@@ -6,27 +6,16 @@ const fs = require('fs')
 let idsInUse = []
 
 app.use(express.urlencoded())
+app.use(express.static(path.join(__dirname, 'public')))
 
-const options = {
+const options = { //for the /notes path, since that's not a default name
   root: path.join(__dirname, 'public')
 }
 
 app.listen(port, () => console.log(`Note Taker server listening at http://localhost:${port}`))
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html',options)
-})
-
 app.get('/notes', (req, res) => {
   res.sendFile('notes.html',options)
-})
-
-app.get('/assets/js/index.js', (req, res) => {
-  res.sendFile('assets/js/index.js', options)
-})
-
-app.get('/assets/css/styles.css', (req, res) => {
-  res.sendFile('/assets/css/styles.css', options)
 })
 
 app.route('/api/notes')
