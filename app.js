@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const port = 3000
 const fs = require('fs')
 let idsInUse = []
 
@@ -12,7 +11,7 @@ const options = { //for the /notes path, since that's not a default name
   root: path.join(__dirname, 'public')
 }
 
-app.listen(port, () => console.log(`Note Taker server listening at http://localhost:${port}`))
+app.listen(process.env.PORT || 3000, () => console.log(`Note Taker server listening at http://localhost:${3000}`))
 
 app.get('/notes', (req, res) => {
   res.sendFile('notes.html',options)
